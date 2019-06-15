@@ -771,7 +771,7 @@ i.fa>img {
 /* //Social Media */
 
 /* Sign Up/ Sign In form */
-form {
+form.login-form {
   width: 450px;
   min-height: 500px;
   height: auto;
@@ -783,7 +783,7 @@ form {
 }
 
 /* form Container */
-form .con {
+form.login-form .con {
   display: -webkit-flex;
   display: flex;
   -webkit-justify-content: space-around;
@@ -802,7 +802,7 @@ header {
   text-align: center;
 }
 
-form header.head-form h2 {
+form.login-form header.head-form h2 {
   font-size: 250%;
   font-family: 'Playfair Display', serif;
   color: #3e403f;
