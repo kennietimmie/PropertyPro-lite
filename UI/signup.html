@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Sign Up | PropertyPro Lite</title>
+  <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+  <div id="page" class="site">
+    <!-- Social Media Navigation -->
+    <nav id="social-media-navigation" class="float-sm social-navigation" role="navigation">
+      <div class="fl-fl float-fb">
+        <a href="https://facebook.com/" target="_blank">
+          <i class="fa fa-facebook">
+            <img src="./images/facebook.png">
+          </i>
+          Like us!
+        </a>
+      </div>
+      <div class="fl-fl float-tw">
+        <a href="https://twitter.com/" target="_blank">
+          <i class="fa fa-twitter">
+            <img src="./images/twitter.png">
+          </i>
+          Follow us!
+        </a>
+      </div>
+      <div class="fl-fl float-gp">
+        <a href="https://aboutme.google.com/u/0/?referer=gplus" target="_blank">
+          <i class="fa fa-google-plus">
+            <img src="./images/googleplus.png">
+          </i>
+          Recommend us!
+        </a>
+      </div>
+      <div class="fl-fl float-rs">
+        <a href="https://rss.com/" target="_blank">
+          <i class="fa fa-rss">
+            <img src="./images/rssfeeds.png">
+          </i>
+          Follow via RSS
+        </a>
+      </div>
+      <div class="fl-fl float-ig">
+        <a href="https://www.instagram.com/" target="_blank">
+          <i class="fa fa-instagram">
+            <img src="./images/Instagram.png">
+          </i>Follow us!
+        </a>
+      </div>
+      <div class="fl-fl float-pn">
+        <a href="https://www.pinterest.com/" target="_blank">
+          <i class="fa fa-pinterest">
+            <img src="./images/pinterest.png">
+          </i>Follow us!
+        </a>
+      </div>
+    </nav>
+    <!-- //Social Media Navigation -->
+    <!-- Form -->
+    <div class="overlay">
+      <form action="./account.html" method="post"  class="login-form">
+        <div class="con">
+          <header class="head-form">
+              <h2>PropertyPro Lite</h2>
+            <p>Signup with your email and password</p>
+          </header>
+          <div class="field-set">
+            <div>
+              <span class="input-item">
+                <i class="fa fas fa-user-circle">
+                  <img src="./images/useravatar.png">
+                </i>
+              </span>
+              <input class="form-input" id="useremail" type="email" placeholder="name@domain.com" required>
+            </div>
+            <div>
+              <span class="input-item">
+                <i class="fa fa-key">
+                  <img src="./images/userpassword.png">
+                </i>
+              </span>
+              <input class="form-input" type="password" placeholder="Password" id="password" name="password" required>
+              <span>
+                <i class="fa fa-eye eye" aria-hidden="true" type="button" id="pwd-eye">
+                  <img src="./images/showpassword.png">
+                </i>
+              </span>
+            </div>
+            <div>
+              <span class="input-item">
+                <i class="fa fa-key">
+                  <img src="./images/userpassword.png">
+                </i>
+              </span>
+              <input class="form-input" type="password" placeholder="Confirm Password" id="cpassword" name="cpassword"
+                required>
+              <span>
+                <i class="fa fa-eye eye" aria-hidden="true" type="button" id="cpwd-eye">
+                  <img src="./images/showpassword.png">
+                </i>
+              </span>
+            </div>
+            <button class="sign-up">Sign Up</button>
+          </div>
+          <div class="other">
+            <a class="btn submits frgt-pass" href="./passwordreset.html">Forgot Password</a>
+            <a class="btn submits sign-in" href="./signin.html">Sign In</a>
+          </div>
+        </div>
+      </form>
+    </div>
+    <!-- //Form -->
+    <script type="text/javascript">
+      let pwd = document.querySelector('#pwd-eye'),
+        cpwd = document.querySelector('#cpwd-eye'),
+        pwdTarget = document.querySelector('#password'),
+        cpwdTarget = document.querySelector('#cpassword');
+
+      const password_to_text = (target) => {
+        target.type === 'password' ? target.type = 'text' : target.type === "text" ? target.type =
+          "password" : '';
+      }
+      pwd.addEventListener('click', () => password_to_text(pwdTarget));
+      cpwd.addEventListener('click', () => password_to_text(cpwdTarget));
+
+      const compare_password = (pwd, cpwd) => {
+        pwd.form.addEventListener('submit', () => {
+          if (pwd.value !== cpwd.value) {
+            pwd.classList.add('error');
+            cpwd.classList.add('error');
+            event.preventDefault();
+          }else{
+            pwd.classList.remove('error');
+            cpwd.classList.remove('error');
+          }
+        });
+      };
+      compare_password(pwdTarget, cpwdTarget);
+    </script>
+  </div>
+</body>
+
+</html>
